@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,9 +14,9 @@ namespace CSharpMVCTutorial.Controllers
             return "Main Hello World route";
         }
 
-        public string Welcome()
+        public string Welcome(string name, int ID = 1)
         {
-            return "Welcome action method";
+            return HtmlEncoder.Default.Encode($"Hello {name}, ID: {ID}");
         }
     }
 }
